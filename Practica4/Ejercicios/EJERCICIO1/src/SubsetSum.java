@@ -62,6 +62,6 @@ public class SubsetSum {
         int[] nums5 = { 4, 2, 5, 1, 6 };
         int target5 = 13;
         System.out.println("Input: " + java.util.Arrays.toString(nums5) + " Target: " + target5 + " Result: "
-                + subsetSum(nums5, target5)); // true
+                + subsetSum(nums5, target5)); 
     }
 }
