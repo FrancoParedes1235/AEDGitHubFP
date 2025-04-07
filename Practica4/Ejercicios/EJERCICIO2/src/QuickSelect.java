@@ -2,7 +2,6 @@ import java.util.Random;
 
 public class QuickSelect {
 
-    // Función que implementa el algoritmo QuickSelect
     public static int quickSelect(int[] arr, int low, int high, int k) {
         if (low == high) {
             return arr[low];
@@ -10,19 +9,15 @@ public class QuickSelect {
 
         int pivotIndex = partition(arr, low, high);
 
-        // El pivote está en la posición correcta
         if (k == pivotIndex) {
             return arr[k];
         } else if (k < pivotIndex) {
-            // El k-ésimo elemento está en el subarreglo izquierdo
             return quickSelect(arr, low, pivotIndex - 1, k);
         } else {
-            // El k-ésimo elemento está en el subarreglo derecho
             return quickSelect(arr, pivotIndex + 1, high, k);
         }
     }
 
-    // Función de partición que organiza el arreglo alrededor de un pivote
     public static int partition(int[] arr, int low, int high) {
         int pivot = arr[high];
         int i = low - 1;
@@ -30,14 +25,12 @@ public class QuickSelect {
         for (int j = low; j < high; j++) {
             if (arr[j] <= pivot) {
                 i++;
-                // Intercambiar arr[i] y arr[j]
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
         }
 
-// Intercambia arr[i + 1] y arr[high] (pivote)
         int temp = arr[i + 1];
         arr[i + 1] = arr[high];
         arr[high] = temp;
@@ -45,7 +38,6 @@ public class QuickSelect {
         return i + 1;
     }
 
-    // Función para encontrar el elemento más pequeño
     public static int findKthSmallest(int[] arr, int k) {
         return quickSelect(arr, 0, arr.length - 1, k - 1); 
     }
